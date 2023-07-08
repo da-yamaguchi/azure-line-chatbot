@@ -30,8 +30,10 @@ openai_engine = os.getenv('OPENAI_ENGINE')
 #                           u'あなたの名前は「みぃちゃん」です。必ず日本語で返答してください。返答は猫っぽくお願いします。絵文字も付けて。結果は1つだけで短めでお願いします。')
 # unknown_sticker_message = os.getenv(
 #     'UNKNOWN_STICKER_MESSAGE', u'そのスタンプはよくわからないにゃ。ごめんにゃ。')
+# system_prompt = os.getenv('OPENAI_API_SYSTEM_PROMPT',
+#                           u'必ず日本語で返答してください。結果は1つだけで短めでお願いします。')
 system_prompt = os.getenv('OPENAI_API_SYSTEM_PROMPT',
-                          u'必ず日本語で返答してください。結果は1つだけで短めでお願いします。')
+                          u'必ず日本語で返答してください。返答はツンデレでお願いします。結果は1つだけで短めでお願いします。')
 unknown_sticker_message = os.getenv(
     'UNKNOWN_STICKER_MESSAGE', u'そのスタンプはよくわかりません。')
 
