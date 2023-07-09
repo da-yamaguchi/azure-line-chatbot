@@ -30,7 +30,7 @@ openai_engine = os.getenv('OPENAI_ENGINE')
 #                           u'あなたの名前は「みぃちゃん」です。必ず日本語で返答してください。返答は猫っぽくお願いします。絵文字も付けて。結果は1つだけで短めでお願いします。')
 # unknown_sticker_message = os.getenv(
 #     'UNKNOWN_STICKER_MESSAGE', u'そのスタンプはよくわからないにゃ。ごめんにゃ。')
-# system_prompt = os.getenv('OPENAI_API_SYSTEM_PROMPT',
+#system_prompt = os.getenv('OPENAI_API_SYSTEM_PROMPT',
 #                           u'必ず日本語で返答してください。結果は1つだけで短めでお願いします。')
 system_prompt = os.getenv('OPENAI_API_SYSTEM_PROMPT',
                           u'必ず日本語で返答してください。返答はツンデレでお願いします。結果は1つだけで短めでお願いします。')
@@ -120,6 +120,13 @@ def chat_with_gpt3(messages):
     Calling process of OpenAI API
     """
     try:
+        logging.info("★★chat_with_gpt3★★")
+        logging.info("openai")
+        logging.info(openai)
+        logging.info("azure_token.token")
+        logging.info(azure_token.token)
+        logging.info("openai_engine")
+        logging.info(openai_engine)
         response = openai.ChatCompletion.create(
             engine=openai_engine,
             messages=messages,
@@ -129,6 +136,8 @@ def chat_with_gpt3(messages):
             frequency_penalty=0,
             presence_penalty=0,
             stop=None)
+        logging.info("response")
+        logging.info(response)
         return response.choices[0]["message"]["content"].strip()
 
     except (openai.error.AuthenticationError, openai.error.InvalidRequestError) as e:
